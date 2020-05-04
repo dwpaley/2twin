@@ -1,7 +1,23 @@
 #! /usr/local/bin/python3
 #Please supply the path to a python3 installation with access to NumPy.
 #If you do not have NumPy, try running "pip3 install numpy".
+'''
+2twin: Multiple independent twinning in ShelXL.
+Copyright 2017, Daniel W. Paley.
+Contact: dwp2111@columbia.edu
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+For a copy of the GPL, see <http://www.gnu.org/licenses/>.
+'''
 
 import sys
 from numpy import array, dot
@@ -115,6 +131,15 @@ def makeCompDict():
         ('001','1'): -4,
         ('001','01'): -5,
         ('001','001'): -6,
+        # 1 non-merohedral and 1 merohedral, orders 4 and 2:
+        ('0001',''): 1,
+        ('0001','0'): 2,
+        ('0001','00'): 3,
+        ('0001','000'): 4,
+        ('0001','1'): -5,
+        ('0001','01'): -6,
+        ('0001','001'): -7,
+        ('0001','0001'): -8,
         # 1 non-merohedral and 1 merohedral, orders 2 and 3:
         ('011',''): 1,
         ('011','0'): 2,
