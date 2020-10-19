@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3
+#! /usr/bin/env python
 #Please supply the path to a python3 installation with access to NumPy.
 #If you do not have NumPy, try running "pip3 install numpy".
 '''
@@ -363,13 +363,17 @@ print('''
 ################################################################################
                 2twin: Multiple independent twinning in ShelXL. 
                              Daniel W. Paley, 2017.
-                         Contact: dwp2111@columbia.edu
+                           Contact: dwpaley@gmail.com
+
+                    If this program is of use, please cite:
+                   https://doi.org/10.1021/acscentsci.7b00328
 ################################################################################
 ''')
 
 if len(sys.argv) == 1 or sys.argv[1] == '--help':
     help()
 else:
+    assert sys.version_info[0]==3, "Please use a Python 3 interpreter."
     main(sys.argv[1])
 
 
