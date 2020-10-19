@@ -20,7 +20,7 @@ For a copy of the GPL, see <http://www.gnu.org/licenses/>.
 '''
 
 import sys
-from numpy import array, dot
+import linalg
 from itertools import combinations
 from copy import deepcopy
 
@@ -206,7 +206,7 @@ class Hklf(object):
         self.l = int(hklfString[8:12])
         self.f2 = hklfString[12:20]
         self.sig = hklfString[20:28]
-        self.hkl = array([[self.h], [self.k], [self.l]])
+        self.hkl = [self.h, self.k, self.l]
 
         if fileInfo['hklType'] == '5': 
             self.comp = int(hklfString[28:32])
@@ -216,8 +216,8 @@ class Hklf(object):
         self.tlFlags = '0' * (-1 + abs(self.comp))
 
     def transform(self, twinLaw, compDict, tlAll):
-        self.hkl = dot(twinLaw.tlArray, self.hkl)
-        self.h, self.k, self.l = self.hkl[:,0]
+        self.hkl = linalg.mat_vec_3_product(twinLaw.tlArray, self.hkl)
+        self.h, self.k, self.l = self.hkl
         self.tlFlags += twinLaw.tlNumber
         self.comp = compDict[ (tlAll, self.tlFlags) ]
 
@@ -243,9 +243,7 @@ class Hklf(object):
 class TwinLaw(object):
     def __init__(self, tlString, tlNumber):
         tlList = [float(n) for n in tlString.split()]
-        self.tlArray = array(
-            [tlList[0:3], tlList[3:6], tlList[6:9]]
-            )
+        self.tlArray = [tlList[0:3], tlList[3:6], tlList[6:9]]
         self.tlMult = int(tlList[9])
         self.tlNumber = tlNumber
 
