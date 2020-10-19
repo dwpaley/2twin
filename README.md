@@ -12,14 +12,25 @@ normal.
 
 ## Installation
 
+### Binary files
+
+Download the correct version for your operating system:
+
+* [Windows (64-bit)](https://github.com/dwpaley/2twin/raw/master/bin/win64/2twin.exe)
+* [OSX](https://github.com/dwpaley/2twin/raw/master/bin/osx/2twin)
+
+Place the executable in the system path. The directory containing your ShelXL executable
+might be convenient.
+
+
+### Source code:
+
 Copy all files and place a link to 2twin.py in your system path:
 
 ```
 $ git clone https://github.com/dwpaley/2twin
 $ ln -s $PWD/2twin.py /usr/local/bin/2twin
 ```
-
-NumPy is required. If you do not have it, try running `$ pip3 install numpy`.
 
 ## Usage
 
