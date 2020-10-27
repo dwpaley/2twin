@@ -4,7 +4,7 @@
 '''
 2twin: Multiple independent twinning in ShelXL.
 Copyright 2017, Daniel W. Paley.
-Contact: dwp2111@columbia.edu
+Contact: dwpaley@gmail.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

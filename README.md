@@ -99,7 +99,7 @@ refinement with MERG 0.
 
 2twin: Multiple independent twinning in ShelXL.
 Copyright 2017, Daniel W. Paley.
-Contact: dwp2111@columbia.edu
+Contact: dwpaley@gmail.com
 
 ## License
 
