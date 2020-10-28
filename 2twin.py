@@ -20,7 +20,6 @@ For a copy of the GPL, see <http://www.gnu.org/licenses/>.
 '''
 
 import sys
-import linalg
 from itertools import combinations
 from copy import deepcopy
 
@@ -198,6 +197,12 @@ def makeCompDict():
     return compDict
 
 
+def mat_vec_3_product(m, v):
+  r0 = sum([x*y for x, y in zip(m[0], v)])
+  r1 = sum([x*y for x, y in zip(m[1], v)])
+  r2 = sum([x*y for x, y in zip(m[2], v)])
+  return [r0, r1, r2]
+
 class Hklf(object):
 
     def __init__(self, hklfString, fileInfo):
@@ -216,7 +221,7 @@ class Hklf(object):
         self.tlFlags = '0' * (-1 + abs(self.comp))
 
     def transform(self, twinLaw, compDict, tlAll):
-        self.hkl = linalg.mat_vec_3_product(twinLaw.tlArray, self.hkl)
+        self.hkl = mat_vec_3_product(twinLaw.tlArray, self.hkl)
         self.h, self.k, self.l = self.hkl
         self.tlFlags += twinLaw.tlNumber
         self.comp = compDict[ (tlAll, self.tlFlags) ]
